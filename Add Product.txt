@@ -1,0 +1,20 @@
+//function for saving a product in to a text file
+void addproduct()
+{
+	struct Product prd;
+	FILE *fp=fopen("products.txt","a");
+	printf("Input Product Id : ");
+	scanf("%d",&prd.id);
+	fflush(stdin);
+	printf("Input Product Name : ");
+	scanf("%[^\n]s",&prd.name);
+	fflush(stdin);
+	printf("Input Product Price : ");
+	scanf("%f",&prd.price);
+	fflush(stdin);
+	printf("Input Available Quntity : ");
+	scanf("%d",&prd.quantity);
+	fwrite(&prd,sizeof(prd),1,fp);
+	printf("Product Details Saved In File!!!");
+	fclose(fp);
+}

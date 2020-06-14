@@ -1,0 +1,40 @@
+void main()
+{
+	clrscr();
+	int n;
+	char sa,sp,su,spp,un,pasw;
+	printf("1.Admin Login: ");
+	printf("\n2.User Login: ");
+	printf("\n3.Exit: ");
+	scanf("%d",&n);
+
+	switch(n)
+	{
+		case 1:
+			printf("\n\t\tAdmin Login: ");
+			printf("\nEnter Username: ");
+			scanf("%s",&sa);
+			printf("Enter Password: ");
+			scanf("%s",&sp);
+			adminlogin();
+			break;
+
+		case 2:
+			printf("\n\t\tUser Login: ");
+			printf("\nEnter Username: ");
+			scanf("%s",&su);
+			printf("Enter Password: ");
+			scanf("%s",&spp);
+			userreg();
+			break;
+		case 3:
+			exit(1);
+			break;
+
+		default:
+			printf("\n\t\tInvalid Entry!!");
+			main();
+			break;
+	}
+getch();
+}

@@ -1,0 +1,24 @@
+//function to show list of all products
+void showproducts()
+{
+	FILE *fp=fopen("products.txt","r");
+	if(fp==NULL)
+	{
+		printf("Sorry File Not Found!!!");
+		exit(1);
+	}
+	else
+	{
+		int cnt=1;
+		struct Product prd;
+		printf("S.N\tID\tProduct Name\t\tPrice\t\tAvailable Quantity\n\n");
+		fread(&prd,sizeof(prd),1,fp);
+		while(!feof(fp))
+		{
+			printf("%d\t%d\t%s\t\t\t%-10.1f\t\t%d\n",cnt,prd.id,prd.name,prd.price,prd.quantity);
+			fread(&prd,sizeof(prd),1,fp);
+			cnt++;
+		}
+		fclose(fp);
+	}
+}

@@ -1,0 +1,38 @@
+void searchproduct()
+{
+	FILE *fp=fopen("products.txt","r"); //File which contains data
+	if(fp==NULL)
+	{
+		printf("\nFile Does Not Found!!!!");
+		exit(1);
+	}
+	else
+	{
+
+		char spname[30];
+		struct Product prd;
+		fflush(stdin);
+		printf("Input Product Name To Search : ");
+		scanf("%[^\n]s",&spname);
+		int isfound=0;
+		fread(&prd,sizeof(prd),1,fp);
+		while(!feof(fp))
+		{
+			if(strcmpi(prd.name,spname)==0)
+			{
+				isfound=1;
+				printf("\nProduct Details Are :-\n");
+				printf("ID : %d\n",prd.id);
+				printf("Name : %s\n",prd.name);
+				printf("Price : %.2f\n",prd.price);
+				printf("Aavailable Quantity : %d",prd.quantity);
+			}
+			fread(&prd,sizeof(prd),1,fp);
+		}
+		if(isfound==0)
+		{
+			printf("\nProduct With Name %s Does Not Found!!!\n",spname);
+		}
+		fclose(fp);
+	}
+}

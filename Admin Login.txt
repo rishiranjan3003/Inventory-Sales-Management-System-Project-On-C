@@ -1,0 +1,35 @@
+void adminlogin()
+{
+	int choice;
+	while(1)
+	{
+
+		printf("\n1.Add Product\n2.Show Products\n3.Search Product\n4.Update Product\n5.Exit\nInput Choice : ");
+		scanf("%d",&choice);
+		if(choice==1)
+		{
+			addproduct();
+		}
+		else if(choice==2)
+		{
+			showproducts();
+		}
+		else if(choice==3)
+		{
+			searchproduct();
+		}
+		else if(choice==4)
+		{
+			updateproduct();
+		}
+		else if(choice==5)
+		{
+			exit(1);
+		}
+		else
+		{
+			printf("Wrong Choice : ");
+		}
+	}
+
+}

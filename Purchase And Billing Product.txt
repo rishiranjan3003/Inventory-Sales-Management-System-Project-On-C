@@ -1,0 +1,64 @@
+void purchaseproduct()
+{
+double mn;
+float tot=0;
+char fn[50],ln[30],em[40],ad[100];
+
+printf("Enter First Name: ");
+scanf("%s",fn);
+printf("Enter Last Name: ");
+scanf("%s",ln);
+printf("Enter Address: ");
+scanf("%s",ad);
+printf("Enter Email-Id: ");
+scanf("%s",em);
+printf("Enter Contact Number: ");
+scanf("%lf",&mn);
+
+    struct details
+    {
+	char name[20];
+	int price;
+	int code;
+	int qty;
+    };
+    struct details item[50];
+    int n, i;
+
+    printf("Enter Number Of Items:");
+    scanf("%d", &n);
+    fflush(stdin);
+    for (i = 0; i < n; i++)
+    {
+	fflush(stdin);
+	printf("Item Name: ");
+	scanf("%s", item[i].name);
+	fflush(stdin);
+	printf("Item Code: ");
+	scanf("%d", &item[i].code);
+	fflush(stdin);
+	printf("Quantity: ");
+	scanf("%d", &item[i].qty);
+	fflush(stdin);
+	printf("Price: ");
+	scanf("%d",  &item[i].price);
+	fflush(stdin);
+    }
+
+	printf("\n");
+	printf("\n\t\t*************** FINAL BILL ***************\n");
+	printf("\nName Of The Customer : %s %s",fn,ln);
+	printf("\nAddress Of The Customer : %s",ad);
+	printf("\nEmail-Id Of The Customer : %s",em);
+	printf("\nContact Number Of The Customer : %0.0lf",mn);
+
+	printf("\n------------------------------------------------------------------\n");
+	printf("S.N.|    NAME           |   CODE   |  QUANTITY  |   PRICE \n");
+	printf("------------------------------------------------------------------\n");
+	for (i = 0; i < n; i++)
+	printf("%d     %-15s        %-d          %-5d     %-5d \n", i + 1, item[i].name, item[i].code, item[i].qty,item[i].price);
+	printf("------------------------------------------------------------------\n");
+	for(i = 0; i < n; i++)
+		tot=tot+item[i].qty*item[i].price;
+	printf("\n\t\t\tTotal Price: %f",tot);
+}

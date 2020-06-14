@@ -1,0 +1,32 @@
+void userreg()
+{
+	int choice;
+	while(1)
+	{
+
+		printf("\n1.Show Product\n2.Enter For Purchasing Product\n3.Search Product\n4.Exit\nInput Choice : ");
+		scanf("%d",&choice);
+		if(choice==1)
+		{
+			showproducts();
+		}
+		else if(choice==2)
+		{
+			purchaseproduct();
+		}
+		else if(choice==3)
+		{
+			searchproduct();
+		}
+		else if(choice==4)
+		{
+			exit(1);
+		}
+		else
+		{
+			printf("\n\t\tWrong Choice!!");
+		}
+	}
+
+
+}

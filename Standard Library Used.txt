@@ -1,0 +1,14 @@
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+#include<process.h>
+struct Product
+{
+	int id;
+	char name[30];
+	float price;
+	int quantity;
+	//Add desired number of members here
+};
